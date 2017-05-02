@@ -1,4 +1,4 @@
-#1 源码安装编辑器 vim
+# 1 源码安装编辑器 vim
 发行套件的软件源中预编译的 vim 要么不是最新版本，要么功能有阉割，有必要升级成全功能的最新版，当然，源码安装必须滴:  
 
 ```
@@ -18,14 +18,14 @@ make install
 若输出 1 则表示构建出的 vim 已支持 python，反之，0 则不支持。
 
 
-#2 配置插件
+# 2 配置插件
 1. git clone https://github.com/sunwaylive/MyVimrc.git ~/ 
 
 2. 安装ack， mac: brew install ack; linux: apt-get install ack.
 
 3. 安装ycm， 这一步最复杂, 进入 ~/.vim/bundle/YouCompleteMe, 按照 https://github.com/Valloric/YouCompleteMe 的教程安装.
 
-#3 使用YCM
+# 3 使用YCM
 
 1. 到~/.vim/bundle/YCM-Generator目录下, 执行 ./config_gen.py ~/your_proj_dir_where_cmakelist_lies, more details: https://github.com/rdnetto/YCM-Generator
 
