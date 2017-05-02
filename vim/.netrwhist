@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/data/naruto/kevinlin/server_proj/server/zonesvr/module_ninjia_chest'
-let g:netrw_dirhist_2='/data/naruto/kevinlin/server_proj/tools/webtool'
-let g:netrw_dirhist_3='/data/naruto/kevinlin/server_proj/server/zonesvr'
-let g:netrw_dirhist_4='/data/naruto/kevinlin/.vim/bundle/easymotion/autoload/EasyMotion'
-let g:netrw_dirhist_5='/data/home/kevinlin/server_proj/test'
