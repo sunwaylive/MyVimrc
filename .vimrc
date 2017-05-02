@@ -81,7 +81,9 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 "Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'vim-scripts/TaskList.vim'
 Plugin 'huxiao/vim-bookmark'
+Plugin 'rdnetto/YCM-Generator' 
 Plugin 'vim-scripts/a.vim'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
@@ -114,6 +116,9 @@ Plugin 'lilydjwg/fcitx.vim'
 
 " 插件列表结束
 call vundle#end()
+
+map <leader>b <Plug>TaskList
+
 filetype plugin indent on
 " <<<<
 
@@ -335,17 +340,19 @@ let g:tagbar_type_cpp = {
 " 默认 --c++-kinds=+p+l，重新设置为 --c++-kinds=+l+p+x+c+d+e+f+g+m+n+s+t+u+v
 " 默认 --fields=+iaS 不满足 YCM 要求，需改为 --fields=+iaSl
 let g:indexer_ctagsCommandLineOptions="--c++-kinds=+l+p+x+c+d+e+f+g+m+n+s+t+u+v --fields=+iaSl --extra=+q"
+nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+nnoremap <leader>j :YcmCompleter GoTo<CR>
 
 " 正向遍历同名标签
-nmap <Leader>tn :tnext<CR>
+"nmap <Leader>tn :tnext<CR>
 " 反向遍历同名标签
-nmap <Leader>tp :tprevious<CR>
+"nmap <Leader>tp :tprevious<CR>
 
 " 基于语义的代码导航
 
-nnoremap <leader>jc :YcmCompleter GoToDeclaration<CR>
+"nnoremap <leader>jc :YcmCompleter GoToDeclaration<CR>
 " 只能是 #include 或已打开的文件
-nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
+"nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
 
 " <<
 
@@ -403,12 +410,28 @@ let g:UltiSnipsJumpBackwardTrigger="<leader><s-tab>"
 
 " >>
 " YCM 补全
+let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+
+" Popup menu hightLight Group
+" 自动补全配置
+"让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
+"set completeopt+=longest
+
+set completeopt=menu,menuone
+"let OmniCpp_MayCompleteDot=1            "  打开  . 操作符
+"let OmniCpp_MayCompleteArrow=1          "打开 -> 操作符
+"let OmniCpp_MayCompleteScope=1          "打开 :: 操作符
+"let OmniCpp_NamespaceSearch=1           "打开命名空间
+"let OmniCpp_GlobalScopeSearch=1
+"let OmniCpp_DefaultNamespace=["std"]
+"let OmniCpp_ShowPrototypeInAbbr=1       "打开显示函数原型
+"let OmniCpp_SelectFirstItem = 2         "自动弹出时自动跳至第一个
 
 " YCM 补全菜单配色
-" 菜单
-highlight Pmenu ctermfg=2 ctermbg=3 guifg=#005f87 guibg=#EEE8D5
-" 选中项
-highlight PmenuSel ctermfg=2 ctermbg=3 guifg=#AFD700 guibg=#106900
+highlight Pmenu ctermbg=Blue guibg=LightGray                                                                                                                                                 
+highlight PmenuSel ctermbg=DarkRed guibg=DarkBlue guifg=White
+highlight PmenuSbar ctermbg=DarkGrey guibg=DarkGray
+highlight PmenuThumb guibg=Black
 
 " 补全功能在注释中同样有效
 let g:ycm_complete_in_comments=1
@@ -600,3 +623,9 @@ endfunc
 " Configure backspace so it acts as it should act                                                                                                                                            
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
+
+"smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
