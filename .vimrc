@@ -632,3 +632,4 @@ map <C-l> <C-W>l
 
 " 为了支持molokai的终端配色模式
 set t_Co=256
+highlight Visual ctermfg=white ctermbg=DarkRed
