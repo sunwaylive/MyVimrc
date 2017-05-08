@@ -118,8 +118,6 @@ syn cluster cppSTLgroup     contains=cppSTLfunction,cppSTLfunctional,cppSTLconst
 "   http://www.vim.org/scripts/script.php?script_id=1640
 " -----------------------------------------------------------------------------
 
-" sunwei add
-syntax keyword cppSTLtype initializer_list
 syntax keyword cppSTLconstant badbit
 syntax keyword cppSTLconstant cerr
 syntax keyword cppSTLconstant cin
